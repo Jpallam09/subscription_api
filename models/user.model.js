@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: [true, 'Name is required...'],
         trim: true,
         minLength: 2,
-        maxLenght: 55
+        maxLength: 55
     },
 
     email: {
@@ -16,13 +16,13 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         match: [/\S+@\S+\.\S+/, 'Please fill a valid address...']
     },
-    password:{
+    password: {
         type: String,
         required: [true, 'please fill a valid password'],
         minLength: 6
     }
 
-}, {timestamps: true})
+}, { timestamps: true })
 
 const User = mongoose.model('User', userSchema);
 

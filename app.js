@@ -1,5 +1,5 @@
 import express from 'express';
-import {PORT} from './config/env.js'
+import { PORT } from './config/env.js'
 import userRouter from './routes/user.routes.js';
 import authRouter from './routes/auth.routes.js';
 import subscriptionRouter from './routes/subscription.routes.js';
@@ -19,11 +19,11 @@ app.use('/api/v1/subscription', subscriptionRouter);
 
 app.use(errorMiddleware);
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.send('Hello!')
 })
 
-app.listen(PORT, async ()=>{
+app.listen(PORT, async () => {
     console.log(`➤ This project is listening in http://localhost:${PORT}`)
 
     await connectToDatabase();

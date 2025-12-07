@@ -1,24 +1,21 @@
 import { response, Router } from "express";
+import { getUsers, getUser } from "../controllers/user.controller.js";
 
 const userRouter = Router();
 
-userRouter.get('/', (request, response) => {
-    response.send({ title: 'get all user' });
-});
+userRouter.get('/', getUsers);
 
-userRouter.get('/user/:id', (request, response) => {
-    response.send({ title: 'get single user' })
-});
+userRouter.get('/:id', getUser);
 
-userRouter.post('/users', (request, response) => {
+userRouter.post('/', (request, response) => {
     response.send({ title: 'make user' })
 });
 
-userRouter.put('/user/:id', (request, response) => {
+userRouter.put('/:id', (request, response) => {
     response.send({ title: 'Edit user' })
 });
 
-userRouter.delete('/user/:id', () => {
+userRouter.delete('/:id', () => {
     response.send({ title: 'delete a user' })
 });
 

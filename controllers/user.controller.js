@@ -15,6 +15,7 @@ export const getUsers = async (req, res, next) => {
 //Get a single User by ID
 export const getUser = async (req, res, next) => {
     try {
+        //find user by ID excluding password field
         const user = await User.findById(req.params.id).select('-password');
         //no user found
         if (!user) {
@@ -22,7 +23,7 @@ export const getUser = async (req, res, next) => {
             error.status = 404;
             throw error;
         }
-        //user found
+        //user found 
         res.status(200).json({ success: true, data: user });
     } catch (error) {
         next(error);
